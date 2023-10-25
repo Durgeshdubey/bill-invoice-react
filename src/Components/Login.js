@@ -10,6 +10,8 @@ import TextField from '@mui/material/TextField';
 import ParticleBackground from "./ParticleBackground";
 import './Login.css'
 import { BrowserRouter as Router, Routes, Route, useNavigate,Link } from "react-router-dom";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 const bull = (
     <Box
@@ -19,6 +21,11 @@ const bull = (
       •
     </Box>
   );
+
+  const schema = yup.object().shape({
+    userName: yup.string().min(3).required(),
+    password: yup.string().min(6).required(),
+  });
 
 function Login(){
 
@@ -31,6 +38,7 @@ function Login(){
         <ParticleBackground />
           <Container sx={{ bgcolor: "", height: "100vh",width:"45vw", color:'white'}}>
             <div style={{paddingTop:"14rem"}}>
+              <form>
             <Card className="Login_card" sx={{bgcolor:'transparent', textAlign:'center', height:'45vh', borderRadius:'2rem'}}>
               <CardContent>
                 <Typography
@@ -50,10 +58,11 @@ function Login(){
               
          
           
-              <Button onClick={()=> navigate('/dashboard')} sx={{marginBottom:'2rem', marginTop:'1rem', color:'white'}} variant="outlined" type="Submit">Submit</Button>
+              <Button type="submit" onClick={()=> navigate('/Sidebar')} sx={{marginBottom:'2rem', marginTop:'1rem', color:'white'}} variant="outlined">Submit</Button>
          
  
             </Card>
+            </form>
             </div>
           </Container>
         </div>
