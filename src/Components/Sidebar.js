@@ -25,8 +25,10 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-
-
+import Add_customer from './Add-customer';
+import Add_NewChallan from './Add-NewChallan';
+import Add_delivery from './Add-Delivery';
+import Bill from './Bill';
 
 
 const drawerWidth = 240;
@@ -107,6 +109,7 @@ function Sidebar(){
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const [menu, setMenu] = React.useState("Dashboard");
   
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -145,12 +148,13 @@ function Sidebar(){
                     {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                   </IconButton>
                 </DrawerHeader>
-                <Divider />  
-                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> navigate('/Dashboard')}> <ListItemIcon><DashboardIcon sx={{ fontSize: 40 }}/></ListItemIcon>   DashBoard </ListItemButton>
-                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> navigate('/Add_customer')}> <ListItemIcon><AccountBoxIcon sx={{ fontSize: 40 }}/></ListItemIcon> Add Customer (M/S) </ListItemButton>
-                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> navigate('/Add_delivery')}> <ListItemIcon><LocalShippingIcon sx={{ fontSize: 40 }}/></ListItemIcon> Add Delivery </ListItemButton>
-                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> navigate('/Add_NewChallan')} > <ListItemIcon><ReceiptIcon  sx={{ fontSize: 40 }}/></ListItemIcon> New Challan </ListItemButton>
-                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> navigate('/Bill')} > <ListItemIcon><ReceiptLongIcon sx={{ fontSize: 40 }}/></ListItemIcon> Bill (GST Invoice) </ListItemButton>
+                <Divider /> 
+                
+                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Dashboard")}> <ListItemIcon><DashboardIcon sx={{ fontSize: 40 }}/></ListItemIcon>   DashBoard </ListItemButton>
+                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Add_customer")}> <ListItemIcon><AccountBoxIcon sx={{ fontSize: 40 }}/></ListItemIcon> Add Customer (M/S) </ListItemButton>
+                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Add_delivery")}> <ListItemIcon><LocalShippingIcon sx={{ fontSize: 40 }}/></ListItemIcon> Add Delivery </ListItemButton>
+                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Add_NewChallan")} > <ListItemIcon><ReceiptIcon  sx={{ fontSize: 40 }}/></ListItemIcon> New Challan </ListItemButton>
+                <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Bill")} > <ListItemIcon><ReceiptLongIcon sx={{ fontSize: 40 }}/></ListItemIcon> Bill (GST Invoice) </ListItemButton>
 
                 {/* <List>
                   {['Dashboard', 'Add Customer (M/S)', 'Add Delivery', 'New Challan','Bill (GST Invoice)'].map((text, index) => (
@@ -179,8 +183,13 @@ function Sidebar(){
                   ))}
                 </List> */}
               </Drawer>
-              <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                <DrawerHeader />
+              <Box component="main">
+                {menu == "Dashboard" && <Dashboard />}
+                {menu == "Add_customer" && <Add_customer />}
+                {menu == "Add_delivery" && <Add_delivery />}
+                {menu == "Add_NewChallan" && <Add_NewChallan />}
+                {menu == "Bill" && <Bill />}
+                
                 
               </Box>
             </Box>

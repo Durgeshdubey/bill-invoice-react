@@ -58,7 +58,7 @@ function Login(){
               
          
           
-              <Button type="submit" onClick={()=> navigate('/Sidebar')} sx={{marginBottom:'2rem', marginTop:'1rem', color:'white'}} variant="outlined">Submit</Button>
+              <Button type="submit" onClick={()=> navigate('/Home')} sx={{marginBottom:'2rem', marginTop:'1rem', color:'white'}} variant="outlined">Submit</Button>
          
  
             </Card>

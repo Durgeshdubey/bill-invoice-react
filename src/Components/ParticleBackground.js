@@ -70,7 +70,7 @@ export default function ParticleBackground() {
 					},
 					"move": {
 					  "enable": true,
-					  "speed": 6,
+					  "speed": 2,
 					  "direction": "none",
 					  "random": true,
 					  "straight": false,

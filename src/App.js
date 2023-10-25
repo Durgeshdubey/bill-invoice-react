@@ -17,9 +17,9 @@ function App() {
    <Routes>
 
     <Route path='' element={<Login />}/>
-    <Route path='/Sidebar' element={<Sidebar />} />
-    <Route path='/Dashboard' element={<Sidebar><Dashboard /></Sidebar>} />
-    <Route path='/Add_customer' element={<Sidebar><Add_customer /></Sidebar>} />
+    <Route path='/Home' element={<Sidebar />} />
+    <Route path='/Dashboard' element={<Dashboard />} />
+    <Route path='/Add_customer' element={<Add_customer />} />
     <Route path='/Add_Delivery' element={<Add_delivery />} />
     <Route path='/Add_NewChallan' element={<Add_NewChallan />} />
     <Route path='/Bill' element={<Bill />} />

@@ -2,7 +2,17 @@ import React from "react";
 
 function Add_customer() {
     return(
-        <h1>Add Customer Works!</h1>
+        <>
+        <div style={{background:'lightBlue'}}>
+        <h1>Dashboard works!</h1>  
+        <h1>Dashboard works!</h1>  
+        <h1>Dashboard works!</h1>  
+        <h1>Dashboard works!</h1> 
+         <h1>Dashboard works!</h1> 
+          <h1>Dashboard works!</h1>  
+          <h1>ADD CUSTOMER</h1>
+        </div>
+      </>
     )
 }
 
