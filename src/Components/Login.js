@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import ParticleBackground from "./ParticleBackground";
 import './Login.css'
+import { BrowserRouter as Router, Routes, Route, useNavigate,Link } from "react-router-dom";
 
 const bull = (
     <Box
@@ -20,10 +21,13 @@ const bull = (
   );
 
 function Login(){
+
+  const navigate = useNavigate();
     return (
       <>
-       
-        <div style={{backgroundImage:`url(https://www.pixground.com/wp-content/uploads/2023/02/Black-Hole-in-the-Vastness-of-Space-AI-4K-Desktop-Wallpaper-Pixground-1536x864.jpg.webp)`,width:'100vw',height:'100vh'}} >
+      
+        {/* <div style={{backgroundImage:`url(https://www.pixground.com/wp-content/uploads/2023/02/Black-Hole-in-the-Vastness-of-Space-AI-4K-Desktop-Wallpaper-Pixground-1536x864.jpg.webp)`,width:'100vw',height:'100vh'}} > */}
+        <div style={{backgroundImage:`url(https://images8.alphacoders.com/132/1321689.png)`, backgroundSize:'100%'}} >
         <ParticleBackground />
           <Container sx={{ bgcolor: "", height: "100vh",width:"45vw", color:'white'}}>
             <div style={{paddingTop:"14rem"}}>
@@ -43,13 +47,18 @@ function Login(){
                 <TextField sx={{input:{color:'white'},label:{color:'white'}}} type="password" fullWidth  id="outlined-basic"label="Password" variant="outlined" required/>
                 </Typography>
               </CardContent>
-        
-              <Button sx={{marginBottom:'2rem', marginTop:'1rem'}} variant="outlined" type="Submit">Submit</Button>
-           
+              
+         
+          
+              <Button onClick={()=> navigate('/dashboard')} sx={{marginBottom:'2rem', marginTop:'1rem', color:'white'}} variant="outlined" type="Submit">Submit</Button>
+         
+ 
             </Card>
             </div>
           </Container>
         </div>
+
+
       </>
     );
 }
