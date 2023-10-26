@@ -17,7 +17,7 @@ export default function ParticleBackground() {
 			options={{
 				"particles": {
 					"number": {
-					  "value": 120,
+					  "value": 170,
 					  "density": {
 						"enable": false,
 						"value_area": 959.616153538585
@@ -94,7 +94,7 @@ export default function ParticleBackground() {
 						"enable": true,
 						"mode": "push"
 					  },
-					  "resize": true
+					  "resize": false
 					},
 					"modes": {
 					  "grab": {
