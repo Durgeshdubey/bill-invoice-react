@@ -29,6 +29,7 @@ import Add_customer from './Add-customer';
 import Add_NewChallan from './Add-NewChallan';
 import Add_delivery from './Add-Delivery';
 import Bill from './Bill';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
 const drawerWidth = 240;
@@ -99,6 +100,16 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1976d2',
+    },
+  },
+});
+
+
 
 
 
@@ -123,6 +134,7 @@ function Sidebar(){
         return (
             <Box sx={{ display: 'flex' }}>
               <CssBaseline />
+              <ThemeProvider theme={darkTheme}>
               <AppBar position="fixed" open={open}>
                 <Toolbar>
                   <IconButton
@@ -138,10 +150,11 @@ function Sidebar(){
                     <MenuIcon />
                   </IconButton>
                   <Typography variant="h6" noWrap component="div">
-                    Dashboard
+                    Bill Invoice
                   </Typography>
                 </Toolbar>
               </AppBar>
+              </ThemeProvider>
               <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
                   <IconButton onClick={handleDrawerClose}>
@@ -156,32 +169,7 @@ function Sidebar(){
                 <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Add_NewChallan")} > <ListItemIcon><ReceiptIcon  sx={{ fontSize: 40 }}/></ListItemIcon> New Challan </ListItemButton>
                 <ListItemButton sx={{maxHeight:'6rem'}} onClick={()=> setMenu("Bill")} > <ListItemIcon><ReceiptLongIcon sx={{ fontSize: 40 }}/></ListItemIcon> Bill (GST Invoice) </ListItemButton>
 
-                {/* <List>
-                  {['Dashboard', 'Add Customer (M/S)', 'Add Delivery', 'New Challan','Bill (GST Invoice)'].map((text, index) => (
-                    <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                      <ListItemButton
-                        sx={{
-                          minHeight: 48,
-                          justifyContent: open ? 'initial' : 'center',
-                          px: 2.5,
-                        }}
-
-                        onClick={()=> navigate('/Add_customer')}
-                      >
-                        <ListItemIcon
-                          sx={{
-                            minWidth: 0,
-                            mr: open ? 3 : 'auto',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                      </ListItemButton>
-                    </ListItem>
-                  ))}
-                </List> */}
+                
               </Drawer>
               <Box component="main">
                 {menu == "Dashboard" && <Dashboard />}

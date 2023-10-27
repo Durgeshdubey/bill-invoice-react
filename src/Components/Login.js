@@ -13,6 +13,9 @@ import { BrowserRouter as Router, Routes, Route, useNavigate,Link } from "react-
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Alert } from '@mui/material';
+import Image from './img.jpg';
+import bg_1 from './bg_1.jpg';
+import bg_3 from './bg_3.jpg';
 
 const bull = (
     <Box
@@ -75,7 +78,7 @@ function Login(){
       <>
       
         {/* <div style={{backgroundImage:`url(https://www.pixground.com/wp-content/uploads/2023/02/Black-Hole-in-the-Vastness-of-Space-AI-4K-Desktop-Wallpaper-Pixground-1536x864.jpg.webp)`, backgroundSize:'100%'}} > */}
-        <div style={{backgroundImage:`url(https://images8.alphacoders.com/132/1321689.png)`, backgroundSize:'100%'}} >
+        <div style={{backgroundImage:`url(${bg_3})`, backgroundSize:'100%'}} >
         <ParticleBackground />
           <Container sx={{ bgcolor: "", height: "100vh",width:"45vw", color:'white'}}>
             <div style={{paddingTop:"14rem"}}>
